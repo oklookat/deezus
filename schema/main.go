@@ -48,8 +48,9 @@ const (
 type RecordType string
 
 const (
-	RecordTypeAlbum = "album"
-	RecordTypeEP    = "ep"
+	RecordTypeAlbum  = "album"
+	RecordTypeEP     = "ep"
+	RecordTypeSingle = "single"
 )
 
 func (e RecordType) String() string {
