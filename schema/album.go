@@ -29,6 +29,16 @@ type (
 
 		// The url of the album's cover in size xl.
 		CoverXl string `json:"cover_xl"`
+
+		// The record type of the album.
+		//
+		// Not nil examples: ArtistAlbums.
+		RecordType *RecordType `json:"record_type"`
+
+		// The album's release date.
+		//
+		// Not nil examples: ArtistAlbums.
+		ReleaseDate *Time `json:"release_date"`
 	}
 
 	Album struct {
@@ -69,9 +79,6 @@ type (
 
 		// The number of album's Fans.
 		Fans int `json:"fans"`
-
-		// The record type of the album.
-		RecordType RecordType `json:"record_type"`
 
 		// Return an alternative album object if the current album is not available.
 		Available bool `json:"available"`
