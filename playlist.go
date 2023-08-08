@@ -49,17 +49,17 @@ func (c *Client) RemoveTracksFromPlaylist(ctx context.Context, id schema.ID, tra
 	return deleteAny(ctx, c, body, "playlist", id.String(), "tracks")
 }
 
-// Update playlist. Empty title; desc; nil bool will be ignored.
-func (c *Client) UpdatePlaylist(ctx context.Context, id schema.ID, title, description string, isPublic *bool) (*schema.BoolResponse, error) {
-	if len(title) == 0 && len(description) == 0 && isPublic == nil {
+// Update playlist. Nil title; desc; bool will be ignored.
+func (c *Client) UpdatePlaylist(ctx context.Context, id schema.ID, title, description *string, isPublic *bool) (*schema.BoolResponse, error) {
+	if title == nil && description == nil && isPublic == nil {
 		return nil, nil
 	}
 	params := url.Values{}
-	if len(title) > 0 {
-		params.Set("title", title)
+	if title != nil && len(*title) > 0 {
+		params.Set("title", *title)
 	}
-	if len(description) > 0 {
-		params.Set("description", description)
+	if description != nil {
+		params.Set("description", *description)
 	}
 	if isPublic != nil {
 		params.Set("public", strconv.FormatBool(*isPublic))

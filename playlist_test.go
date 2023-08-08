@@ -71,8 +71,10 @@ func TestPlaylistCRUD(t *testing.T) {
 	}
 
 	// Update playlist.
+	title := "test2"
+	desc := "cooldesc"
 	isPub := true
-	if _, err = cl.UpdatePlaylist(ctx, ideed.ID, "test2", "cooldesc", &isPub); err != nil {
+	if _, err = cl.UpdatePlaylist(ctx, ideed.ID, &title, &desc, &isPub); err != nil {
 		t.Fatal(err)
 	}
 
