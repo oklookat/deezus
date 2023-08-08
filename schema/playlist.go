@@ -20,6 +20,12 @@ type (
 		PictureMedium string `json:"picture_medium"`
 		PictureBig    string `json:"picture_big"`
 		PictureXl     string `json:"picture_xl"`
+
+		// Not nil example: UserMePlaylists.
+		Creator *struct {
+			ID   ID     `json:"id"`
+			Name string `json:"name"`
+		} `json:"creator"`
 	}
 
 	Playlist struct {
@@ -33,11 +39,7 @@ type (
 		Checksum     string `json:"checksum"`
 		Tracklist    string `json:"tracklist"`
 		CreationDate *Time  `json:"creation_date"`
-		Creator      *struct {
-			ID   ID     `json:"id"`
-			Name string `json:"name"`
-		} `json:"creator"`
-		Tracks struct {
+		Tracks       struct {
 			Data     []SimpleTrack `json:"data"`
 			Checksum string        `json:"checksum"`
 		} `json:"tracks"`
