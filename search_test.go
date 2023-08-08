@@ -9,7 +9,7 @@ func TestSearchAlbums(t *testing.T) {
 	ctx := context.Background()
 	cl := getClient(t)
 
-	resp, err := cl.SearchAlbums(ctx, "eminem", "", false, 0, 5)
+	resp, err := cl.SearchAlbums(ctx, "Тальник Cyou", "", false, 0, 5)
 	if err != nil {
 		t.Fatal(err)
 	}

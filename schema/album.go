@@ -42,7 +42,7 @@ type (
 	}
 
 	Album struct {
-		SimpleAlbum `json:"simpleAlbum"`
+		SimpleAlbum
 
 		// The album's release date.
 		ReleaseDate *Time `json:"release_date"`
