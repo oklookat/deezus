@@ -2,7 +2,6 @@ package schema
 
 import (
 	"encoding/json"
-	"errors"
 	"fmt"
 	"net/url"
 	"strconv"
@@ -179,7 +178,9 @@ func (e *Time) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-	return errors.New("failed to parse schema.Time")
+	convTime(time.Now())
+	return nil
+	//return errors.New("failed to parse schema.Time: " + string(b))
 }
 
 type Order string
